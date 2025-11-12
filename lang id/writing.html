@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Ibnu - Writing</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <button class="hamburger-btn" aria-label="Toggle Menu" aria-expanded="false">
+            <span class="icon-hamburger">&#9776;</span>
+            <span class="icon-close">&times;</span>
+        </button>
+
+        <div class="navbar-content">
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Project</a></li>
+                <li><a href="writing.html" class="active">Writing</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="CV Ibnu Rizqi Indra Daniswara (1).pdf">Resume</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <span class="active-lang">ID</span>
+                <span>中文</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-content-container">
+        <div class="coming-soon-card">
+            <h2>Writing</h2>
+            <p>Coming Soon...</p>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p id="copyright"></p>
+        <p>Dibuat dengan ❤️ di Indonesia</p>
+    </footer>
+
+    <script>
+        // Script untuk copyright year
+        const copyrightElement = document.getElementById('copyright');
+        const currentYear = new Date().getFullYear();
+        copyrightElement.textContent = `© ${currentYear} Ibnu. All rights reserved.`;
+
+        // Script untuk hamburger menu
+        const hamburgerBtn = document.querySelector('.hamburger-btn');
+        const bodyEl = document.querySelector('body');
+
+        if (hamburgerBtn) {
+            hamburgerBtn.addEventListener('click', function() {
+                bodyEl.classList.toggle('menu-open');
+                const isExpanded = bodyEl.classList.contains('menu-open');
+                hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+            });
+        }
+
+        // Script untuk menutup menu saat mengklik link di mobile
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    bodyEl.classList.remove('menu-open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    
+                    // Update current page title
+                    const currentPageEl = document.querySelector('.current-page');
+                    if (currentPageEl) currentPageEl.textContent = link.textContent;
+                }
+            });
+        });
+
+        // Script untuk menutup menu saat mengklik di luar menu di mobile
+        document.addEventListener('click', (event) => {
+            const navbar = document.querySelector('.navbar');
+            const isClickInsideNavbar = navbar.contains(event.target);
+            
+            if (window.innerWidth <= 768 && 
+                bodyEl.classList.contains('menu-open') && 
+                !isClickInsideNavbar) {
+                bodyEl.classList.remove('menu-open');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+
+</body>
+</html>

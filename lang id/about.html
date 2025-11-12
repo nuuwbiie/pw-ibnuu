@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Ibnu</title>
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        
+        
+        <button class="hamburger-btn" aria-label="Toggle Menu" aria-expanded="false">
+            <span class="icon-hamburger">&#9776;</span>
+            <span class="icon-close">&times;</span>
+        </button>
+        
+        <div class="navbar-content">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="projects.html">Project</a></li>
+                <li><a href="writing.html">Writing</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="CV Ibnu Rizqi Indra Daniswara (1).pdf">Resume</a></li>
+            </ul>
+            <div class="lang-switcher">
+                <span class="active-lang">ID</span>
+                <span>中文</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="about-page-container">
+        
+        <div class="about-content">
+            <h2>Ibnu Rizqi Indra Daniswara</h2>
+            <p>
+            Hi, you can call me Ibnu or Rizqi or anything. I'm a student at IPB University majoring in Computer Science. I love learning and building things that are related to Machine Learning, Artificial Intelligence, and Robotics. In the future, I would love to apply my knowledge in those areas to agriculture.
+            </p>
+            <p>
+            I'm very active on social media, having 88k+ followers on Instagram and 85k+ followers on TikTok. I typically document my projects and share tech-related information in my platform.
+            </p>
+            <p>
+            Aside of the nitty gritty, I love listening to Clairo, Slow Pulp, Arctic Monkeys, The Marias, IVE, NewJeans, Steve Lacy, Mac DeMarco, Malcolm Todd, Faye Webster, and much more. Here's my Spotify link if you're interested. I also love Marvel, Harry Potter, and all of my cats! Oh, and I was part of a game show lol.
+            </p>
+            <p>
+            Email me for any inquiries at ibnudaniswara@apps.ipb.ac.id
+            </p>
+        </div>
+    
+        <div class="about-image">
+            <img src="about-photo.jpg" alt="Foto Ibnu">
+        </div>
+    
+    </main>
+
+    <footer class="site-footer">
+        <p id="copyright"></p>
+        <p>Dibuat dengan ❤️ di Indonesia</p>
+    </footer>
+
+    <script>
+        // Script untuk copyright year
+        const copyrightElement = document.getElementById('copyright');
+        const currentYear = new Date().getFullYear();
+        copyrightElement.textContent = `© ${currentYear} Ibnu. All rights reserved.`;
+
+        // Script untuk hamburger menu
+        const hamburgerBtn = document.querySelector('.hamburger-btn');
+        const bodyEl = document.querySelector('body');
+
+        hamburgerBtn.addEventListener('click', function() {
+            bodyEl.classList.toggle('menu-open');
+            const isExpanded = bodyEl.classList.contains('menu-open');
+            hamburgerBtn.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Script untuk menutup menu saat mengklik link di mobile
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    bodyEl.classList.remove('menu-open');
+                    hamburgerBtn.setAttribute('aria-expanded', 'false');
+                    
+                    // Update current page title
+                    const currentPageEl = document.querySelector('.current-page');
+                    currentPageEl.textContent = link.textContent;
+                }
+            });
+        });
+
+        // Script untuk menutup menu saat mengklik di luar menu di mobile
+        document.addEventListener('click', (event) => {
+            const navbar = document.querySelector('.navbar');
+            const isClickInsideNavbar = navbar.contains(event.target);
+            
+            if (window.innerWidth <= 768 && 
+                bodyEl.classList.contains('menu-open') && 
+                !isClickInsideNavbar) {
+                bodyEl.classList.remove('menu-open');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+
+</body>
+</html>
