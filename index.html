@@ -49,14 +49,14 @@
                 <a href="#" aria-label="WeChat" class="qr-trigger">
                     <i class="fab fa-weixin"></i>
                     <div class="qr-popup">
-                        <img src="wechat-qr.png" alt="WeChat QR Code">
+                        <img src="src/wx_qr.png" alt="WeChat QR Code">
                     </div>
                 </a>
                 
                 <a href="#" aria-label="QQ" class="qr-trigger">
                     <i class="fab fa-qq"></i>
                     <div class="qr-popup">
-                        <img src="qq-qr.png" alt="QQ QR Code">
+                        <img src="src/qq_qr.jpg" alt="QQ QR Code">
                     </div>
                 </a>
                 
@@ -66,12 +66,12 @@
             <h1>Hai, saya Ibnu.</h1>
             <p class="subtitle">Freshman | Computer Science<br>@ IPB University batch 62</p>
             <p class="interests">I ❤️ Music, Math, AI</p>
-            <a href="#" class="cta-button">ABOUT ME</a>
+            <a href="about.html" class="cta-button">ABOUT ME</a>
         </div>
         
         <div class="hero-image">
-            <script type="module" src="https://unpkg.com/@splinetool/viewer@1.11.2/build/spline-viewer.js"></script>
-<spline-viewer url="https://prod.spline.design/gTC9hDpTSkhybfUM/scene.splinecode"></spline-viewer>
+            <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js" type="module"></script>
+            <dotlottie-wc src="https://lottie.host/fb564bba-4688-46b7-95a1-15b6669e17a5/FFgPbMpxuZ.lottie" style="width: 300px;height: 300px" autoplay loop></dotlottie-wc>
         </div>
     </main>
 
@@ -121,6 +121,43 @@
                 !isClickInsideNavbar) {
                 bodyEl.classList.remove('menu-open');
                 hamburgerBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Script untuk QR trigger - toggle QR popup saat klik
+        const qrTriggers = document.querySelectorAll('.qr-trigger');
+        qrTriggers.forEach(trigger => {
+            trigger.addEventListener('click', function(e) {
+                e.preventDefault();
+                // Toggle hanya untuk trigger yang diklik
+                const isActive = trigger.classList.contains('qr-active');
+                
+                // Tutup semua QR popup lainnya
+                qrTriggers.forEach(t => {
+                    if (t !== trigger) {
+                        t.classList.remove('qr-active');
+                    }
+                });
+                
+                // Toggle QR popup yang diklik
+                if (isActive) {
+                    trigger.classList.remove('qr-active');
+                } else {
+                    trigger.classList.add('qr-active');
+                }
+            });
+        });
+
+        // Tutup QR popup saat klik di luar
+        document.addEventListener('click', (event) => {
+            const isClickInsideQrTrigger = Array.from(qrTriggers).some(trigger => 
+                trigger.contains(event.target)
+            );
+            
+            if (!isClickInsideQrTrigger) {
+                qrTriggers.forEach(trigger => {
+                    trigger.classList.remove('qr-active');
+                });
             }
         });
     </script>

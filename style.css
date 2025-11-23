@@ -217,7 +217,7 @@ body {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     width: 140px;
     transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 10;
+    z-index: 1002;
 }
 
 .qr-popup img {
@@ -228,6 +228,13 @@ body {
 
 /* Tampilkan QR saat hover */
 .qr-trigger:hover .qr-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Tampilkan QR saat aktif (klik) */
+.qr-trigger.qr-active .qr-popup {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
@@ -292,6 +299,7 @@ body {
 .about-page-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     gap: 40px;
     width: 90%;
     max-width: 1000px;
@@ -334,11 +342,63 @@ body {
 .about-image img {
     width: 100%;
     max-width: 400px;
-    height: 750px;
+    aspect-ratio: 3 / 4;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     border: 3px solid #444;
     object-fit: cover;
+}
+
+/* Action Buttons (Donasi & NGL) */
+.action-buttons {
+    flex: 1 1 100%;
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.donasi-btn,
+.ngl-btn {
+    flex: 1;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    background-color: #4caf50;
+    color: white;
+    position: relative;
+}
+
+.donasi-btn:hover,
+.ngl-btn:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+.donasi-btn {
+    position: relative;
+}
+
+/* Spotify Playlist Embed */
+.spotify-playlist {
+    flex: 1 1 100%;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.spotify-playlist iframe {
+    width: 100%;
+    max-width: 100%;
 }
 
 /* --- Gaya Footer --- */
@@ -542,8 +602,25 @@ body {
     }
     
     .about-image img {
-        height: 500px;
+        aspect-ratio: 3 / 4;
         max-width: 300px;
+    }
+
+    .action-buttons {
+        margin-top: 20px;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .donasi-btn,
+    .ngl-btn {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .spotify-playlist {
+        margin-top: 20px;
+        width: 100%;
     }
 
     /* --- Perbaikan Footer --- */
