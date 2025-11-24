@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Ibnu</title>
+    <title>Ibnu 作品集</title>
     
     <link rel="stylesheet" href="style.css">
     
@@ -25,15 +25,15 @@
         
         <div class="navbar-content">
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="projects.html">Project</a></li>
-                <li><a href="writing.html">Writing</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="src/CV Ibnu Rizqi Indra Daniswara (1).pdf">Resume</a></li>
+                <li><a href="index-zh.html" class="active">首页</a></li>
+                <li><a href="projects-zh.html">项目</a></li>
+                <li><a href="writing-zh.html">写作</a></li>
+                <li><a href="about-zh.html">关于</a></li>
+                <li><a href="src/CV Ibnu Rizqi Indra Daniswara (1).pdf">简历</a></li>
             </ul>
             <div class="lang-switcher">
-                <span class="active-lang">ID</span>
-                <a href="index-zh.html" lang="zh">中文</a>
+                <a href="index.html">ID</a>
+                <span class="active-lang" lang="zh">中文</span>
             </div>
         </div>
     </nav>
@@ -63,10 +63,10 @@
                 <a href="mailto:ibnudaniswara@apps.ipb.ac.id" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
 
-            <h1>Hai, saya Ibnu.</h1>
-            <p class="subtitle">Freshman | Computer Science<br>@ IPB University batch 62</p>
-            <p class="interests">I ❤️ Music, Math, AI</p>
-            <a href="about.html" class="cta-button">ABOUT ME</a>
+            <h1>你好，我是 Ibnu。</h1>
+            <p class="subtitle">大一新生｜计算机科学<br>@ IPB 大学 62 届</p>
+            <p class="interests">我 ❤️ 音乐、数学、人工智能</p>
+            <a href="about.html" class="cta-button">关于我</a>
         </div>
         
         <div class="hero-image">
@@ -77,16 +77,16 @@
 
     <footer class="site-footer">
         <p id="copyright"></p>
-        <p>Dibuat dengan ❤️ di Indonesia</p>
+        <p>在印度尼西亚用 ❤️ 制作</p>
     </footer>
 
     <script>
-        // Script untuk copyright year
+        // 版权年份
         const copyrightElement = document.getElementById('copyright');
         const currentYear = new Date().getFullYear();
-        copyrightElement.textContent = `© ${currentYear} Ibnu. All rights reserved.`;
+        copyrightElement.textContent = `© ${currentYear} Ibnu. 版权所有。`;
 
-        // Script untuk hamburger menu
+        // 汉堡菜单
         const hamburgerBtn = document.querySelector('.hamburger-btn');
         const bodyEl = document.querySelector('body');
 
@@ -96,7 +96,7 @@
             hamburgerBtn.setAttribute('aria-expanded', isExpanded);
         });
 
-        // Script untuk menutup menu saat mengklik link di mobile
+        // 移动端点击菜单链接后关闭菜单
         const navLinks = document.querySelectorAll('.nav-links a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -104,14 +104,13 @@
                     bodyEl.classList.remove('menu-open');
                     hamburgerBtn.setAttribute('aria-expanded', 'false');
                     
-                    // Update current page title
                     const currentPageEl = document.querySelector('.current-page');
                     currentPageEl.textContent = link.textContent;
                 }
             });
         });
 
-        // Script untuk menutup menu saat mengklik di luar menu di mobile
+        // 点击菜单外部区域时关闭移动端菜单
         document.addEventListener('click', (event) => {
             const navbar = document.querySelector('.navbar');
             const isClickInsideNavbar = navbar.contains(event.target);
@@ -124,22 +123,19 @@
             }
         });
 
-        // Script untuk QR trigger - toggle QR popup saat klik
+        // QR 触发器 - 点击时切换弹窗
         const qrTriggers = document.querySelectorAll('.qr-trigger');
         qrTriggers.forEach(trigger => {
             trigger.addEventListener('click', function(e) {
                 e.preventDefault();
-                // Toggle hanya untuk trigger yang diklik
                 const isActive = trigger.classList.contains('qr-active');
                 
-                // Tutup semua QR popup lainnya
                 qrTriggers.forEach(t => {
                     if (t !== trigger) {
                         t.classList.remove('qr-active');
                     }
                 });
                 
-                // Toggle QR popup yang diklik
                 if (isActive) {
                     trigger.classList.remove('qr-active');
                 } else {
@@ -148,7 +144,7 @@
             });
         });
 
-        // Tutup QR popup saat klik di luar
+        // 点击弹窗外任意区域关闭 QR
         document.addEventListener('click', (event) => {
             const isClickInsideQrTrigger = Array.from(qrTriggers).some(trigger => 
                 trigger.contains(event.target)
@@ -161,7 +157,7 @@
             }
         });
 
-        // Klik gambar QR untuk membuka versi penuh di tab baru
+        // 点击 QR 图片在新标签打开原图
         const qrImages = document.querySelectorAll('.qr-popup img');
         qrImages.forEach(img => {
             img.addEventListener('click', (event) => {
@@ -174,3 +170,4 @@
 
 </body>
 </html>
+

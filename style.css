@@ -81,9 +81,16 @@ body {
     font-weight: bold;
 }
 
-.lang-switcher span {
+.lang-switcher span,
+.lang-switcher a {
     padding: 8px;
     cursor: pointer;
+    color: #f0f0f0;
+    text-decoration: none;
+}
+
+.lang-switcher a:not(.active-lang):hover {
+    color: #4caf50;
 }
 
 .lang-switcher .active-lang {

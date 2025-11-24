@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Ibnu</title>
+    <title>Ibnu 作品集 - 关于</title>
     
     <link rel="stylesheet" href="style.css">
     
@@ -25,15 +25,15 @@
         
         <div class="navbar-content">
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Project</a></li>
-                <li><a href="writing.html">Writing</a></li>
-                <li><a href="about.html" class="active">About</a></li>
-                <li><a href="src/CV Ibnu Rizqi Indra Daniswara (1).pdf">Resume</a></li>
+                <li><a href="index-zh.html">首页</a></li>
+                <li><a href="projects-zh.html">项目</a></li>
+                <li><a href="writing-zh.html">写作</a></li>
+                <li><a href="about-zh.html" class="active">关于</a></li>
+                <li><a href="src/CV Ibnu Rizqi Indra Daniswara (1).pdf">简历</a></li>
             </ul>
             <div class="lang-switcher">
-                <span class="active-lang">ID</span>
-                <a href="about-zh.html" lang="zh">中文</a>
+                <a href="about.html">ID</a>
+                <span class="active-lang" lang="zh">中文</span>
             </div>
         </div>
     </nav>
@@ -43,28 +43,28 @@
         <div class="about-content">
             <h2>Ibnu Rizqi Indra Daniswara</h2>
             <p>
-            Hi, you can call me Ibnu or Rizqi or anything. I'm a student at IPB University majoring in Computer Science. I love learning and building things that are related to Machine Learning, Artificial Intelligence, and Robotics. In the future, I would love to apply my knowledge in those areas to agriculture.
+            你好，可以叫我 Ibnu 或 Rizqi。 我是 IPB 大学计算机科学专业的学生，热衷于学习并构建与机器学习、人工智能和机器人相关的事物。 未来我希望把这些知识应用在农业领域。
             </p>
             <p>
-            I'm very active on social media, as a scroller of course. and i'm sharing my interest about tech in my platform.
+            我在社交媒体上非常活跃，大部分时间在刷资讯，但也分享我的科技兴趣和灵感。
             </p>
             <p>
-            Oh i also love watching movies, series, and animes. My favorite genres are Sci-fi, Action, and Thriller.
+            我也喜欢看电影、剧集和动漫，最喜欢的类型是科幻、动作和惊悚。
             </p>
             <p>
-            Email me for any inquiries at ibnudaniswara@apps.ipb.ac.id
+            如果有合作或其他交流，欢迎发邮件到 ibnudaniswara@apps.ipb.ac.id。
             </p>
         </div>
     
         <div class="about-image">
-            <img src="src/about-photo.jpg" alt="Foto Ibnu">
+            <img src="src/about-photo.jpg" alt="Ibnu 的照片">
         </div>
         
         <div class="action-buttons">
-            <button class="donasi-btn qr-trigger" aria-label="Donasi">
-                Donasi
+            <button class="donasi-btn qr-trigger" aria-label="捐赠">
+                捐赠
                 <div class="qr-popup">
-                    <img src="src/qris_qr.png" alt="QRIS QR Code">
+                    <img src="src/qris_qr.png" alt="QRIS 收款码">
                 </div>
             </button>
             <a href="https://ngl.link/yourusername" target="_blank" class="ngl-btn" aria-label="NGL">
@@ -80,16 +80,16 @@
 
     <footer class="site-footer">
         <p id="copyright"></p>
-        <p>Dibuat dengan ❤️ di Indonesia</p>
+        <p>在印度尼西亚用 ❤️ 制作</p>
     </footer>
 
     <script>
-        // Script untuk copyright year
+        // 版权年份
         const copyrightElement = document.getElementById('copyright');
         const currentYear = new Date().getFullYear();
-        copyrightElement.textContent = `© ${currentYear} Ibnu. All rights reserved.`;
+        copyrightElement.textContent = `© ${currentYear} Ibnu. 版权所有。`;
 
-        // Script untuk hamburger menu
+        // 汉堡菜单
         const hamburgerBtn = document.querySelector('.hamburger-btn');
         const bodyEl = document.querySelector('body');
 
@@ -99,7 +99,7 @@
             hamburgerBtn.setAttribute('aria-expanded', isExpanded);
         });
 
-        // Script untuk menutup menu saat mengklik link di mobile
+        // 移动端点击菜单链接后关闭菜单
         const navLinks = document.querySelectorAll('.nav-links a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -107,14 +107,13 @@
                     bodyEl.classList.remove('menu-open');
                     hamburgerBtn.setAttribute('aria-expanded', 'false');
                     
-                    // Update current page title
                     const currentPageEl = document.querySelector('.current-page');
-                    currentPageEl.textContent = link.textContent;
+                    if (currentPageEl) currentPageEl.textContent = link.textContent;
                 }
             });
         });
 
-        // Script untuk menutup menu saat mengklik di luar menu di mobile
+        // 点击菜单外部区域时关闭移动端菜单
         document.addEventListener('click', (event) => {
             const navbar = document.querySelector('.navbar');
             const isClickInsideNavbar = navbar.contains(event.target);
@@ -127,7 +126,7 @@
             }
         });
 
-        // Script untuk tombol Donasi - toggle QR popup saat klik
+        // 捐赠按钮 - 点击时切换 QR 弹窗
         const donasiBtn = document.querySelector('.donasi-btn');
         if (donasiBtn) {
             donasiBtn.addEventListener('click', function(e) {
@@ -138,7 +137,6 @@
                 }
             });
 
-            // Tutup popup saat klik di luar
             document.addEventListener('click', (event) => {
                 if (!donasiBtn.contains(event.target)) {
                     donasiBtn.classList.remove('qr-active');
@@ -149,3 +147,4 @@
 
 </body>
 </html>
+

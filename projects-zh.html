@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Ibnu - Writing</title>
+    <title>Ibnu 作品集 - 项目</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -19,38 +19,38 @@
         <div class="navbar-content">
             
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Project</a></li>
-                <li><a href="writing.html" class="active">Writing</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="src/CV Ibnu Rizqi Indra Daniswara (1).pdf">Resume</a></li>
+                <li><a href="index-zh.html">首页</a></li>
+                <li><a href="projects-zh.html" class="active">项目</a></li>
+                <li><a href="writing-zh.html">写作</a></li>
+                <li><a href="about-zh.html">关于</a></li>
+                <li><a href="src/CV Ibnu Rizqi Indra Daniswara (1).pdf">简历</a></li>
             </ul>
             <div class="lang-switcher">
-                <span class="active-lang">ID</span>
-                <a href="writing-zh.html" lang="zh">中文</a>
+                <a href="projects.html">ID</a>
+                <span class="active-lang" lang="zh">中文</span>
             </div>
         </div>
     </nav>
 
     <main class="page-content-container">
         <div class="coming-soon-card">
-            <h2>Writing</h2>
-            <p>Coming Soon...</p>
+            <h2>项目</h2>
+            <p>敬请期待...</p>
         </div>
     </main>
 
     <footer class="site-footer">
         <p id="copyright"></p>
-        <p>Dibuat dengan ❤️ di Indonesia</p>
+        <p>在印度尼西亚用 ❤️ 制作</p>
     </footer>
 
     <script>
-        // Script untuk copyright year
+        // 版权年份
         const copyrightElement = document.getElementById('copyright');
         const currentYear = new Date().getFullYear();
-        copyrightElement.textContent = `© ${currentYear} Ibnu. All rights reserved.`;
+        copyrightElement.textContent = `© ${currentYear} Ibnu. 版权所有。`;
 
-        // Script untuk hamburger menu
+        // 汉堡菜单
         const hamburgerBtn = document.querySelector('.hamburger-btn');
         const bodyEl = document.querySelector('body');
 
@@ -62,7 +62,7 @@
             });
         }
 
-        // Script untuk menutup menu saat mengklik link di mobile
+        // 移动端点击菜单链接后关闭菜单
         const navLinks = document.querySelectorAll('.nav-links a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -70,14 +70,13 @@
                     bodyEl.classList.remove('menu-open');
                     hamburgerBtn.setAttribute('aria-expanded', 'false');
                     
-                    // Update current page title
                     const currentPageEl = document.querySelector('.current-page');
                     if (currentPageEl) currentPageEl.textContent = link.textContent;
                 }
             });
         });
 
-        // Script untuk menutup menu saat mengklik di luar menu di mobile
+        // 点击菜单外部区域时关闭移动端菜单
         document.addEventListener('click', (event) => {
             const navbar = document.querySelector('.navbar');
             const isClickInsideNavbar = navbar.contains(event.target);
@@ -93,3 +92,4 @@
 
 </body>
 </html>
+
