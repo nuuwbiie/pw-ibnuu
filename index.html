@@ -160,6 +160,16 @@
                 });
             }
         });
+
+        // Klik gambar QR untuk membuka versi penuh di tab baru
+        const qrImages = document.querySelectorAll('.qr-popup img');
+        qrImages.forEach(img => {
+            img.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const fullSrc = img.getAttribute('data-full-src') || img.getAttribute('src');
+                window.open(fullSrc, '_blank', 'noopener');
+            });
+        });
     </script>
 
 </body>
